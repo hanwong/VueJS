@@ -30,11 +30,12 @@
 </head>
 <body>
 
+<!-- Vue Template -->
 <div class="wrapper">
   <h2 class="title is-2">사용자 입력 필드</h2>
-  <input type="text" class="user-input">
+  <input type="text" class="user-input" v-model="message">
   <p class="print-user-input">
-    사용자가 입력한 값은 <span class="user-input is-print-area">아직 입력되지 않았습니다.</span> 입니다.
+    사용자가 입력한 값은 <span class="user-input is-print-area">{{ message }}</span> 입니다.
   </p>
 </div>
 
@@ -76,13 +77,15 @@
     // input, span 요소에 데이터 바인딩하여 화면에 뷰를 렌더링
     function renderView() {
       input.value = data.message;
+      // input.setAttribute('value', data.message);
       print.textContent = data.message;
     }
 
     // 이벤트 바인딩 함수
     // 요소노드 <-> 이벤트 <-> 핸들러
     function bindEvents() {
-      input.onkeyup = updateView;
+      // input.onkeyup = updateView;
+      input.addEventListener('keyup', updateView);
     }
 
     function updateView(e) {
@@ -124,26 +127,32 @@
     }
 
     function bindEvents() {
-      $input.on('keyup', updateView);
+      $input.on('keyup.updateView', updateView);
+      $input.on('keyup.updateData', updateData);
     }
 
     function updateView(e) {
       var content = e.target.value;
       $print.text(content);
-      updateData(content);
     }
 
-    function updateData(content) {
+    function updateData(e) {
+      var content = e.target.value;
       data.message = content;
     }
 
-
-  })(window, window.jQuery);
+  }) //(window, window.jQuery);
 </script>
 
 <script>
 (function(global, Vue){
   'use strict';
+
+  // Create Vue Instance (Object)
+  global.vm = new Vue({
+    el: '.wrapper',
+    data: data
+  });
 
 
 })(window, window.Vue);
