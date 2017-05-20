@@ -10,11 +10,15 @@
 
 
 <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/jquery"></script>
 <script>
-(function(global, Vue){
+(function(global, Vue, $){
   'use strict';
 
-})(window, window.Vue);
+  console.log('Vue가 존재하는가?:', !!Vue);          // true
+  console.log('jQuery가 존재하는가?:', $.fn.jquery); // Print jQuery Version
+
+})(window, window.Vue, window.jQuery);
 </script>
 </body>
 </html>
