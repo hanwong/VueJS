@@ -98,7 +98,7 @@
       data.message = content;
     }
 
-  })(window);
+  }) //(window);
 </script>
 
 <script>
@@ -106,6 +106,36 @@
   (function(global, $){
     'use strict';
 
+    var $input, $print;
+
+    init();
+
+    function init() {
+      $input = $('.user-input');
+      $print = $('.is-print-area');
+      renderView();
+      bindEvents();
+    }
+
+    function renderView() {
+      var msg = data.message;
+      $input.val(msg);
+      $print.text(msg);
+    }
+
+    function bindEvents() {
+      $input.on('keyup', updateView);
+    }
+
+    function updateView(e) {
+      var content = e.target.value;
+      $print.text(content);
+      updateData(content);
+    }
+
+    function updateData(content) {
+      data.message = content;
+    }
 
 
   })(window, window.jQuery);
