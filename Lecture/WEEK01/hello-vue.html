@@ -9,12 +9,21 @@
 <body>
 
 
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/jquery"></script>
+<!-- Load CDN Data -->
+<!-- <script src="https://unpkg.com/vue"></script> -->
+<!-- <script src="https://unpkg.com/jquery"></script> -->
+
+<!-- Load Local File -->
+<script src="js/vue.js"></script>
+<script src="js/jquery.js"></script>
+
 <script>
+// JavaScript Module Pattern
 (function(global, Vue, $){
+  // Strict Mode
   'use strict';
 
+  // TDD
   console.log('Vue가 존재하는가?:', !!Vue);          // true
   console.log('jQuery가 존재하는가?:', $.fn.jquery); // Print jQuery Version
 
