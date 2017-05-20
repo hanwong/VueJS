@@ -34,16 +34,69 @@
   <h2 class="title is-2">사용자 입력 필드</h2>
   <input type="text" class="user-input">
   <p class="print-user-input">
-    사용자가 입력한 값은 <span class="user-input is-print-area">아직 입력되지 않았습니다.</span> 입니다.</p>
+    사용자가 입력한 값은 <span class="user-input is-print-area">아직 입력되지 않았습니다.</span> 입니다.
+  </p>
 </div>
 
 <script src="js/vue.js"></script>
 <script src="js/jquery.js"></script>
 
 <script>
+  // 전역에 공개된 데이터(State)
+  var data = {
+    message: 'Hello Vue :-)'
+  };
+</script>
+
+<script>
   // Vanilla Script
   (function(global){
     'use strict';
+
+    // 문서 객체 참조 변수 선언
+    // 지역 내 공유 목적
+    var input, print;
+
+    // 애플리케이션 초기화
+    init();
+
+    // 초기화 수행 함수
+    function init() {
+      // 문서 객체 참조
+      input = document.querySelector('.user-input');
+      print = document.querySelector('.is-print-area');
+      // 렌더링 뷰
+      renderView();
+      // 이벤트 바인딩
+      bindEvents();
+    }
+
+    // 뷰 렌더링 함수
+    // 전역에 공개된 data 객체의 message 값을
+    // input, span 요소에 데이터 바인딩하여 화면에 뷰를 렌더링
+    function renderView() {
+      input.value = data.message;
+      print.textContent = data.message;
+    }
+
+    // 이벤트 바인딩 함수
+    // 요소노드 <-> 이벤트 <-> 핸들러
+    function bindEvents() {
+      input.onkeyup = updateView;
+    }
+
+    function updateView(e) {
+      // console.log(e.target.value);
+      var changed_content = e.target.value;
+      // update span view
+      print.textContent = changed_content;
+      // update data
+      updateData(changed_content);
+    }
+
+    function updateData(content) {
+      data.message = content;
+    }
 
   })(window);
 </script>
