@@ -19,7 +19,7 @@
 # 진행 내용 목차
 
 WEEK 01 — [2017.05.20](./README/0520.md) &nbsp; ⌲ &nbsp; 안녕! 뷰(Vue) <br>
-WEEK 02 — [2017.05.27](./README/0527.md) &nbsp; ⌲ &nbsp; <br>
+WEEK 02 — [2017.05.27](./README/0527.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 컨셉, MVVM 설계 패턴, 가상 DOM<br>
 WEEK 03 — [2017.06.03](./README/0603.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 04 — [2017.06.10](./README/0610.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 05 — [2017.06.17](./README/0617.md) &nbsp; ⌲ &nbsp; <br>
