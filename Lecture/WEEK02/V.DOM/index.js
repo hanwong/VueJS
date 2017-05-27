@@ -56,26 +56,72 @@ window.todoList = todoList;
 
 // todoList를 처리하기 위한 render() 함수 정의
 function render() {
-  var headline = h('h1.todo-headline', 'To Do List');
+  var headline = h('h1.todo-headline', '오늘 할 일 목록');
   var listItems = todoList.map(function(item, index) {
     return h('li.todolist-item', [
       item,
-      h('button.todo-item-delete',{
+      h('button.todo-item-delete.button',{
         type: 'button',
         onclick: function(e){
           // todoList 모델 데이터 수정(제거)
-          console.log('index:', index);
+          // console.log('index:', index);
           todoList.splice(index, 1);
-          console.log('todoList:', todoList);
+          // console.log('todoList:', todoList);
           // Virtual DOM의 diff() 함수가 변경 사항을 감지하여
           // Patch 합니다. -> 사용자 화면 뷰 변경
           update();
         }
-      }, 'delete')
+      }, '제거')
     ]);
   });
+  var input = h('input.todo-new-item', {
+    type: 'text',
+    placeholder: '오늘 할 일을 입력해주세요',
+    onkeyup: function(e) {
+      // console.log(e.target.value);
+      // 사용자가 Enter, Spacebar 를 눌렀을 때만 작동
+      var keycode = e.keyCode || e.which;
+      if ( keycode === 13 ) {
+        // 사용자가 입력한 내용
+        var input = e.target;
+        var input_value = input.value.trim();
+        if ( input_value === '' ) {
+          input.value = '';
+          return; // 함수 종료
+        }
+        // todoList에 신규 아이템으로 등록
+        todoList.unshift(input_value);
+        // 사용자 인터페이스 업데이트 update() 호출
+        update();
+        // 사용자가 입력한 후, 인풋 필드를 초기화
+        input.value = '';
+      }
+    }
+  });
+  var addItemBtn = h('button.add-todo-item.button', {
+    type: 'button',
+    onclick: function(e) {
+      // .todo-new-item DOM 객체 Finding
+      var input = document.querySelector('.todo-new-item');
+      var input_value = input.value;
+      // todoList에 신규 아이템으로 등록
+      todoList.unshift(input_value);
+      // 사용자 인터페이스 업데이트 update() 호출
+      update();
+      // 사용자가 입력한 후, 인풋 필드를 초기화
+      input.value = '';
+      // console.log('clicked add todo item button');
+    }
+  }, '등록');
   var list = h('ul.todolist', listItems);
-  var container = h('div.container', [headline, list]);
+  var container = h('div.container', [
+    headline,
+    // [input] input field,
+    input,
+    // [button] add item
+    addItemBtn,
+    list
+  ]);
   return container;
 }
 
