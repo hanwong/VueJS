@@ -1,5 +1,9 @@
 body {
   margin: 3rem auto;
-  min-width: 20rem;
-  max-width: 50rem;
+  /*min-width: 20rem;*/
+  max-width: 20rem;
+}
+
+.todo-item-delete {
+  float: right;
 }
