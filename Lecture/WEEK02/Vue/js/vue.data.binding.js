@@ -8,7 +8,7 @@
   console.log('Array.isArray(frameworks):', Array.isArray(frameworks));
   // 뷰 인스턴스 생성
   // 인스턴스 생성을 위한 옵션 객체를 전달
-  new Vue({
+  global.vm = new Vue({
     // DOM 요소에 마운트
     el: '.demo',
     // 데이터를 연결
