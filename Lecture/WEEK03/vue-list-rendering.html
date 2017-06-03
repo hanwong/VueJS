@@ -11,20 +11,34 @@
 
   <div class="demo list-rendering" v-cloak>
 
-    <div>
-      <button type="button" class="button using-register">사용자 등록</button>
+    <div class="register-user">
+      <button type="button" class="button using-register">사용자 등록 {{ using_register ? '감추기' : '보기' }}</button>
     </div>
 
     <template v-if="using_register">
-      <label for="register_input">신입생</label> :
-      <input id="register_input" type="text" placeholder="홍길동">
+      <div class="form-group">
+        <label for="register_user_name">이름</label> :
+        <input id="register_user_name" type="text" placeholder="홍길동">
+      </div>
+      <div class="form-group">
+        <label for="register_user_age">나이</label> :
+        <input id="register_user_age" type="text" placeholder="22">
+      </div>
+      <div class="form-group">
+        <label for="register_major">전공</label> :
+        <input id="register_major" type="text" placeholder="통계학">
+      </div>
+      <div class="form-group">
+        <label for="register_school">학교</label> :
+        <input id="register_school" type="text" placeholder="강원대">
+      </div>
       <button class="button register-classmate" type="button">등록</button>
     </template>
 
     <template v-if="is_block_show">
       <h1 class="demo-title">{{ class_name }}</h1>
       <ul class="demo-classmate-list">
-        <li class="classmate-item" v-for="(member, index) in fdc" v-if="index % 2 === 0">
+        <li class="classmate-item" v-for="(member, index) in fdc"> <!--  v-if="index % 2 === 0" -->
           <!-- 10보다 작은 인덱스의 경우는 인덱스 앞에 숫자 '0'을 붙여라. -->
           <span class="classmate-index">No. {{ ++index < 10 ? '0'+index : index }}</span>
           <h3 class="classmate-name">이름: {{member.name}}</h3>

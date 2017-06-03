@@ -24,7 +24,7 @@
       console.log('Vue 객체(인스턴스) 마운트 이후 시점');
 
       // ——————————————————————————————————————————————————————————————————————————————————————————
-      // Vue.js 방법을 사용하지 않고, DOM 스크립트 + 라이프사이클 훅(mounted)를 사용하여 이벤트 핸들링 (비효율적)
+      // Vue.js 방법을 사용하지 않고, DOM 스크립트 + 라이프사이클 훅(mounted)을 사용하여 이벤트 핸들링 (비효율적)
       // ——————————————————————————————————————————————————————————————————————————————————————————
 
       var document               = global.document;
@@ -36,7 +36,7 @@
 
       function toggleRegisterView () {
         _this.using_register = !_this.using_register;
-        global.setTimeout(changeDOMBindEvent.bind(_this), 0);
+        global.setTimeout(changeDOMBindEvent, 0);
       }
 
       function changeDOMBindEvent() {
@@ -45,18 +45,22 @@
       }
 
       function registerClassMate(e) {
-        var input = this.previousElementSibling;
-        var user_name = input.value.trim();
-        if ( user_name ) {
-          addListItem(user_name);
-        }
+        var inputs = demo.querySelectorAll('input');
+        var dataset = [];
+        inputs.forEach(function(item){
+          dataset.push(item.value.trim() || null);
+          item.value = '';
+        });
+        addListItem({
+          name: dataset[0],
+          age: dataset[1],
+          major: dataset[2],
+          school: {name: dataset[3]}
+        });
       }
 
-      function addListItem(name) {
-        console.log(_this);
-        _this.fdc.unshift({
-          name: name
-        });
+      function addListItem(classmate) {
+        _this.fdc.unshift(classmate);
       }
 
     },
