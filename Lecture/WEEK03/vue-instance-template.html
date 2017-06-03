@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>인스턴스(객체), 템플릿, 디렉티브, 데이터 바인딩, 라이프 사이클 훅 — Vue</title>
+  <link rel="stylesheet" href="css/vue.css">
+</head>
+<body>
+
+<!-- Vue X-Template: 템플릿 코드 작성 -->
+<script type="text/x-template" id="x-template-test">
+  <p>오늘은 {{ americano }}를 마셨어요</p>
+  <!--<p>오늘은 {{ new Date().getFullYear() }}년입니다.</p>-->
+  <!--<p>5 + 난수의 결과 값은 {{ 5 + Math.floor( Math.random() * 10 ) }} 입니다.</p>-->
+  <!--<p>{{ co.latte }}</p>-->
+  <!--<p>{{ var data; if (window) { data = 'true'; } }}</p>-->
+</script>
+
+  <!-- Vue 앱이 마운트 될 요소를 추가 -->
+  <div id="app"></div>
+
+<!-- 데이터 파일 로드 -->
+<script src="./js/data.js"></script>
+<!-- Vue 파일 로드: CDN -->
+<script src="https://unpkg.com/vue"></script>
+<!-- Vue 실습 파일 로드 -->
+<script src="js/vue.instance.template.js"></script>
+
+
+</body>
+</html>
