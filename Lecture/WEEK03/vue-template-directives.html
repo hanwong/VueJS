@@ -47,6 +47,15 @@
       class="wrapper secondary"
       v-html="content_container"></div>
 
+    <!--v-if, v-else 예제-->
+    <div class="wrapper">
+      <strong v-show="is_show">Vue.js 장점: {{vue_prop.length}} 개</strong>
+      <!--<strong v-text="'Vue.js 장점: ' + vue_prop.length + '개'"></strong>-->
+      <p v-if="vue_prop.length > 1">Vue.js 장점의 개수는 {{ vue_prop.length }} 입니다.</p>
+      <p v-else-if="vue_prop.length === 1">Vue.js 정말... 장점을 없앨 겁니까?</p>
+      <p v-else>Oops... Vue.js의 장점은 없습니다. ㅠㅡㅠ</p>
+    </div>
+
   </div>
 
 <script src="./js/data.js"></script>

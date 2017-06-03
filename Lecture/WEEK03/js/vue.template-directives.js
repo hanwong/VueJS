@@ -6,6 +6,7 @@
     el: '#app',
     data: {
       is_visible: !true,
+      is_show: false,
       message: 'Hello Vue',
       emotion: ':-)',
       concept: 'MVVM',
