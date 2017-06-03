@@ -46,37 +46,5 @@
 <script src="./js/data.js"></script>
 <script src="https://unpkg.com/vue"></script>
 <script src="js/vue.list.rendering.js"></script>
-
-<script>
-(function(global){
-  'use strict';
-  var document = global.document;
-  var register_btn = document.querySelector('.button.using-register');
-  var register_classmate_btn = document.querySelector('.register-classmate');
-
-  console.log(register_classmate_btn);
-
-  register_btn.addEventListener('click', toggleRegisterView);
-  register_classmate_btn.addEventListener('click', registerClassMate);
-
-  function registerClassMate(e) {
-    var input = this.previousElementSibling;
-    var user_name = input.value.trim();
-    addListItem(user_name);
-  }
-
-  function addListItem(name) {
-    demo.fdc.unshift({
-      name: name
-    });
-  }
-
-  function toggleRegisterView () {
-    // console.log(demo);
-    demo.using_register = !demo.using_register;
-  }
-
-})(window);
-</script>
 </body>
 </html>
