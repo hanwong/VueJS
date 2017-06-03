@@ -10,19 +10,30 @@
 <body>
 
   <div class="demo list-rendering" v-cloak>
-    <h1 class="demo-title">{{ class_name }}</h1>
-    <ul class="demo-classmate-list">
-      <li class="classmate-item" v-for="(member, index) in fdc" v-if="index % 2 === 0">
-        <!-- 10보다 작은 인덱스의 경우는 인덱스 앞에 숫자 '0'을 붙여라. -->
-        <span class="classmate-index">No. {{ ++index < 10 ? '0'+index : index }}</span>
-        <h3 class="classmate-name">이름: {{member.name}}</h3>
-        <span class="classmate-age">나이: {{member.age}}</span>
-        <!-- 디렉티브를 사용한 조건부 렌더링 -->
-        <p v-if="member.school" class="classmate-school">학교: {{ member.school.name }}</p>
-        <!-- 표현식을 사용한 조건 처리 -->
-        <p class="classmate-major">전공: {{ member.major ? member.major : '없음' }}</p>
-      </li>
-    </ul>
+
+    <button type="button" class="button using-register">사용자 등록</button>
+
+    <template v-if="using_register">
+      <label for="register_input">신입생</label> :
+      <input id="register_input" type="text" placeholder="홍길동">
+      <button class="button register-classmate" type="button">등록</button>
+    </template>
+
+    <template v-if="is_block_show">
+      <h1 class="demo-title">{{ class_name }}</h1>
+      <ul class="demo-classmate-list">
+        <li class="classmate-item" v-for="(member, index) in fdc" v-if="index % 2 === 0">
+          <!-- 10보다 작은 인덱스의 경우는 인덱스 앞에 숫자 '0'을 붙여라. -->
+          <span class="classmate-index">No. {{ ++index < 10 ? '0'+index : index }}</span>
+          <h3 class="classmate-name">이름: {{member.name}}</h3>
+          <span class="classmate-age">나이: {{member.age}}</span>
+          <!-- 디렉티브를 사용한 조건부 렌더링 -->
+          <p v-if="member.school" class="classmate-school">학교: {{ member.school.name }}</p>
+          <!-- 표현식을 사용한 조건 처리 -->
+          <p class="classmate-major">전공: {{ member.major ? member.major : '없음' }}</p>
+        </li>
+      </ul>
+    </template>
 
     <hr>
 

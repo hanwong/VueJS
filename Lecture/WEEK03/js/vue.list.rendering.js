@@ -4,8 +4,10 @@
   global.demo = new Vue({
     el: '.demo',
     data: {
-      // fdc: front-end design camp
+      is_block_show: true,
+      using_register: !true,
       class_name: 'front-end design camp',
+      // fdc: front-end design camp
       fdc: classUsingArray // [{}, {}, {}, ...] length: 10
     }
   });
