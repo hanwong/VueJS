@@ -15,7 +15,7 @@
       <button type="button" class="button using-register">사용자 등록 {{ using_register ? '감추기' : '보기' }}</button>
     </div>
 
-    <template v-if="using_register">
+    <div class="register-user-form" v-show="using_register">
       <div class="form-group">
         <label for="register_user_name">이름</label> :
         <input id="register_user_name" type="text" placeholder="홍길동">
@@ -33,7 +33,7 @@
         <input id="register_school" type="text" placeholder="강원대">
       </div>
       <button class="button register-classmate" type="button">등록</button>
-    </template>
+    </div>
 
     <template v-if="is_block_show">
       <h1 class="demo-title">{{ class_name }}</h1>

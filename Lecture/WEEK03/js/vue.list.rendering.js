@@ -36,10 +36,6 @@
 
       function toggleRegisterView () {
         _this.using_register = !_this.using_register;
-        global.setTimeout(changeDOMBindEvent, 0);
-      }
-
-      function changeDOMBindEvent() {
         var register_classmate_btn = demo.querySelector('.register-classmate');
         register_classmate_btn.addEventListener('click', registerClassMate);
       }
