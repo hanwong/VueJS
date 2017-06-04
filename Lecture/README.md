@@ -20,7 +20,7 @@
 
 WEEK 01 — [2017.05.20](./README/0520.md) &nbsp; ⌲ &nbsp; 안녕! 뷰(Vue) <br>
 WEEK 02 — [2017.05.27](./README/0527.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 컨셉, MVVM 설계 패턴, 가상 DOM<br>
-WEEK 03 — [2017.06.03](./README/0603.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 인스턴스, 템플릿, 디렉티비, 데이터 바인딩, 라이프 사이클 훅<br>
+WEEK 03 — [2017.06.03](./README/0603.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 인스턴스, 템플릿, 디렉티브, 데이터 바인딩, 라이프 사이클 훅<br>
 WEEK 04 — [2017.06.10](./README/0610.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 05 — [2017.06.17](./README/0617.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 06 — [2017.06.24](./README/0624.md) &nbsp; ⌲ &nbsp; <br>
