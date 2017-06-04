@@ -32,7 +32,7 @@
       var demo                   = _this.$el;
       var register_btn           = demo.querySelector('.button.using-register');
 
-      register_btn.addEventListener('click', toggleRegisterView.bind(_this));
+      register_btn.addEventListener('click', toggleRegisterView);
 
       function toggleRegisterView () {
         _this.using_register = !_this.using_register;
