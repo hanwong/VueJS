@@ -9,8 +9,35 @@
 </head>
 <body>
 
+  <div class="search">
+    <input type="text" class="query" v-model="query">
+    <ul>
+      <li v-for="data in fiteredDataset">
+        {{data}}
+      </li>
+    </ul>
+  </div>
+
 
 <script src="https://unpkg.com/vue"></script>
-<script src="js/vue.start.js"></script>
+<script>
+  new Vue({
+    el: '.search',
+    data: {
+      query: '',
+      dataset: [
+        'a', 'c', 'j', 'k'
+      ]
+    },
+    computed: {
+      fiteredDataset: function(){
+        return this.dataset.filter(function(item, index){
+          return item.indexOf(this.query) > -1;
+        }, this);
+      }
+    }
+  })
+</script>
+
 </body>
 </html>

@@ -10,20 +10,38 @@
 <body>
 
   <div class="demo container" v-cloak>
+    <h1>{{ reverseHeadline }}</h1>
     <label for="user_input">검색어</label>
     <input
       id="user_input"
       type="text"
-      v-on:keyup.shift.enter="addItem"
+      @keyup.f1="addItem"
       placeholder="검색어 입력">
     <button
-      v-on:click="addItem"
+      @click="addItem"
       type="button" class="add-item">
       추가
     </button>
     <ul class="directory">
-      <li v-for="item in directory">
-        {{ item }}
+      <li v-for="(item, index) in directory">
+        <a
+          :class="[
+            'directory-link',
+            {'is-active': item.active}
+          ]"
+          :style="[
+            {'font-size': 32 + 'px'},
+            {marginBottom: 1.4 + 'rem'}
+          ]"
+          :href="item.href"
+          :target="item.external ? '_blank' : false"
+          :title="item.external ? '새 창 열림' : false"
+          v-bind="{
+            'data-id': 'directory-link' + ++index,
+            'data-content': item.label
+          }">
+          {{ reverseText(item.label) }}
+        </a>
       </li>
     </ul>
 

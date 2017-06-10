@@ -2,13 +2,44 @@
 ;(function(global, Vue){
   'use strict';
 
+  // 사용자 정의 키 수식어 설정
+  Vue.config.keyCodes.f1 = 112;
+
   new Vue({
     el: '.demo',
     data: {
+      headline: 'Vue.js Application',
       query: '',
-      directory: '파스타 피자 리조또 콜라 사이다'.split(' ')
+      directory: [
+        {
+          href: 'http://google.com',
+          label: 'Google',
+          external: true,
+          active: false,
+        },
+        {
+          href: 'http://naver.com',
+          label: 'NAVER',
+          external: false,
+          active: true,
+        },
+        {
+          href: 'http://css-tricks.com',
+          label: 'CSS Tricks',
+          external: true,
+          active: false,
+        },
+      ]
+    },
+    computed: {
+      reverseHeadline: function() {
+        return this.headline.split('').reverse().join('');
+      }
     },
     methods: {
+      reverseText: function(text) {
+        return text.split('').reverse().join('');
+      },
       addInputItem: function(e) {
         var t = e.target;
         var v = t.value.trim();
