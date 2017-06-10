@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> — Vue</title>
+  <title>Vue 반응형 시스템 확인 — Vue</title>
   <link rel="stylesheet" href="css/vue.css">
 </head>
 <body>
 
+  <div class="demo">
+    <ul class="demo-eco-system">
+      <li v-for="item in eco_system">{{item}}</li>
+    </ul>
+  </div>
+
 
 <script src="https://unpkg.com/vue"></script>
-<script src="js/vue.start.js"></script>
+<script src="js/vue.reactivity.js"></script>
 </body>
 </html>
