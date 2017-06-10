@@ -11,15 +11,6 @@
       fdc: classUsingArray // [{}, {}, {}, ...] length: 10
     },
     // Life Cycle Hook
-    beforeCreate: function() {
-      console.log('Vue 객체(인스턴스) 생성 이전 시점');
-    },
-    created: function() {
-      console.log('Vue 객체(인스턴스) 생성 이후 시점');
-    },
-    beforeMount: function() {
-      console.log('Vue 객체(인스턴스) 마운트 이전 시점');
-    },
     mounted: function() {
       console.log('Vue 객체(인스턴스) 마운트 이후 시점');
 
@@ -29,7 +20,7 @@
 
       var document               = global.document;
       var _this                  = this;
-      var demo                   = _this.$el;
+      var demo                   = _this.$el; // <div class="demo">
       var register_btn           = demo.querySelector('.button.using-register');
 
       register_btn.addEventListener('click', toggleRegisterView);
@@ -43,7 +34,7 @@
       function registerClassMate(e) {
         var inputs = demo.querySelectorAll('input');
         var dataset = [];
-        inputs.forEach(function(item){
+        Array.prototype.forEach.call(inputs, function(item){
           dataset.push(item.value.trim() || null);
           item.value = '';
         });
@@ -59,18 +50,6 @@
         _this.fdc.unshift(classmate);
       }
 
-    },
-    beforeUpdate: function() {
-      console.log('Vue 객체(인스턴스) 업데이트 이전 시점');
-    },
-    updateed: function() {
-      console.log('Vue 객체(인스턴스) 업데이트 이후 시점');
-    },
-    beforeDestroy: function() {
-      console.log('Vue 객체(인스턴스) 파괴 이전 시점');
-    },
-    destroyed: function() {
-      console.log('Vue 객체(인스턴스) 파괴 이후 시점');
     }
   });
 
