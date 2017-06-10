@@ -11,7 +11,7 @@
       ]
     },
     methods: {
-      instantIMEInput: function(){
+      instantIMEInput: function(e){
         // console.log(e.target.value);
         this.user_input = e.target.value;
       },

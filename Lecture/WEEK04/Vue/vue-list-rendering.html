@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>리스트 렌더링 — Vue</title>
+  <link rel="stylesheet" href="css/vue.css">
+</head>
+<body>
+
+  <div class="demo list-rendering" v-cloak>
+
+    <div class="register-user">
+      <button type="button" class="button using-register" v-on:click="toggleRegister">
+        사용자 등록 {{ using_register ? '감추기' : '보기' }}
+      </button>
+    </div>
+
+    <div class="register-user-form" v-show="using_register">
+      <div class="form-group">
+        <label for="register_user_name">이름</label> :
+        <input v-model="classmate.name" id="register_user_name" type="text" placeholder="홍길동">
+      </div>
+      <div class="form-group">
+        <label for="register_user_age">나이</label> :
+        <input v-model="classmate.age" id="register_user_age" type="text" placeholder="22">
+      </div>
+      <div class="form-group">
+        <label for="register_major">전공</label> :
+        <input v-model="classmate.major" id="register_major" type="text" placeholder="통계학">
+      </div>
+      <div class="form-group">
+        <label for="register_school">학교</label> :
+        <input v-model="classmate.school.name" id="register_school" type="text" placeholder="강원대">
+      </div>
+      <button class="button register-classmate" type="button" v-on:click="registerClassmate">등록</button>
+    </div>
+
+    <template v-if="is_block_show">
+      <h1 class="demo-title">{{ class_name }}</h1>
+      <ul class="demo-classmate-list">
+        <li class="classmate-item" v-for="(member, index) in fdc"> <!--  v-if="index % 2 === 0" -->
+          <!-- 10보다 작은 인덱스의 경우는 인덱스 앞에 숫자 '0'을 붙여라. -->
+          <span class="classmate-index">No. {{ ++index < 10 ? '0'+index : index }}</span>
+          <h3 class="classmate-name">이름: {{member.name}}</h3>
+          <span class="classmate-age">나이: {{member.age}}</span>
+          <!-- 디렉티브를 사용한 조건부 렌더링 -->
+          <p v-if="member.school" class="classmate-school">학교: {{ member.school.name }}</p>
+          <!-- 표현식을 사용한 조건 처리 -->
+          <p class="classmate-major">전공: {{ member.major ? member.major : '없음' }}</p>
+        </li>
+      </ul>
+    </template>
+
+    <hr>
+
+    <!-- 데이터 순환 후, 표 동적 구성 -->
+
+  </div>
+
+<script src="./js/data.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/vue.list.rendering.js"></script>
+</body>
+</html>
