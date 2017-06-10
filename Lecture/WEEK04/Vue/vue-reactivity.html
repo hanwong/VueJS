@@ -9,10 +9,29 @@
 </head>
 <body>
 
-  <div class="demo">
+  <div class="demo" v-cloak>
+
+    <h2>v-model 디렉티브 사례</h2>
+    <input
+      type="text"
+      v-model="user_input">
+    <p>{{ user_input }}</p>
+
+    <h2>v-on, v-bind 디렉티브 사례(한글, 중문, 일문)</h2>
+    <input
+      type="text"
+      v-on:input="instantIMEInput"
+      v-bind:value="user_input">
+    <p>{{ user_input }}</p>
+
     <ul class="demo-eco-system">
-      <li v-for="item in eco_system">{{item}}</li>
+      <li v-for="item in eco_system">
+        <a
+          href
+          v-on:click.prevent="changeColor($event)">{{item}}</a>
+      </li>
     </ul>
+
   </div>
 
 
