@@ -14,10 +14,13 @@
     <input
       id="user_input"
       type="text"
-      v-on:input="instantSearch"
-      v-bind:value="query"
+      v-on:keyup.shift.enter="addItem"
       placeholder="검색어 입력">
-
+    <button
+      v-on:click="addItem"
+      type="button" class="add-item">
+      추가
+    </button>
     <ul class="directory">
       <li v-for="item in directory">
         {{ item }}
