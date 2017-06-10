@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue 이벤트 핸들링, 이벤트/키 수식어 활용  — Vue</title>
+  <link rel="stylesheet" href="css/vue.css">
+</head>
+<body>
+
+  <div class="demo container" v-cloak>
+    <label for="user_input">검색어</label>
+    <input
+      id="user_input"
+      type="text"
+      v-on:input="instantSearch"
+      v-bind:value="query"
+      placeholder="검색어 입력">
+
+    <ul class="directory">
+      <li v-for="item in directory">
+        {{ item }}
+      </li>
+    </ul>
+
+  </div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="js/vue.event.binding.key.js"></script>
+</body>
+</html>
