@@ -5,15 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>계산된 속성을 사용한 "순간 검색" — Vue</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
   <link rel="stylesheet" href="css/vue.css">
 </head>
 <body>
 
   <div class="instant-search container" v-cloak>
-    <input type="text" class="search-query" @input="filteredQuery">
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">순간 검색</h1>
+          <h2 class="subtitle">계산된 속성 결과가 반영된 필터링</h2>
+        </div>
+      </div>
+    </section>
+
+    <div class="box">
+      <label class="label" for="search-query">검색어</label>
+      <input id="search-query" type="text" class="input is-primary search-query" @input="filteredQuery">
+    </div>
+
     <ul class="datalist">
-      <li v-for="data in fiteredDataset">{{data}}</li>
+      <li class="box" v-for="data in fiteredDataset">{{data}}</li>
     </ul>
+
+    <p class="box" v-if="fiteredDataset.length === 0"> 검색 결과가 없습니다. </p>
+
   </div>
 
 <script src="https://unpkg.com/vue"></script>

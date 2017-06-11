@@ -14,6 +14,9 @@
         '오렌지 쥬스'
       ]
     },
+    mounted () {
+      this.$el.style.paddingBottom = '4rem';
+    },
     methods: {
       filteredQuery: function(e) {
         this.query = e.target.value;
