@@ -19,10 +19,10 @@
 # 진행 내용 목차
 
 WEEK 01 — [2017.05.20](./README/0520.md) &nbsp; ⌲ &nbsp; 안녕! 뷰(Vue) <br>
-WEEK 02 — [2017.05.27](./README/0527.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 컨셉, MVVM 설계 패턴, 가상 DOM<br>
-WEEK 03 — [2017.06.03](./README/0603.md) &nbsp; ⌲ &nbsp; 뷰(Vue) 인스턴스, 템플릿, 디렉티브, 데이터 바인딩, 라이프 사이클 훅<br>
-WEEK 04 — [2017.06.10](./README/0610.md) &nbsp; ⌲ &nbsp; 반응형 시스템, 이벤트 핸들링, 속성 바인딩, 계산된/관찰 속성, 스트리트 파이터 뷰 구현<br>
-WEEK 05 — [2017.06.17](./README/0617.md) &nbsp; ⌲ &nbsp; <br>
+WEEK 02 — [2017.05.27](./README/0527.md) &nbsp; ⌲ &nbsp; 뷰 컨셉, MVVM 설계 패턴, 가상 DOM<br>
+WEEK 03 — [2017.06.03](./README/0603.md) &nbsp; ⌲ &nbsp; 뷰 인스턴스, 템플릿, 디렉티브, 데이터 바인딩, 라이프 사이클 훅<br>
+WEEK 04 — [2017.06.10](./README/0610.md) &nbsp; ⌲ &nbsp; 반응형 시스템, 이벤트 핸들링, 속성 바인딩, 계산된 속성<br>
+WEEK 05 — [2017.06.17](./README/0617.md) &nbsp; ⌲ &nbsp; 관찰 속성, 필터링/정렬 테이블 디자인, 스트리트 파이터 뷰, 폼 입력 바인딩, 컴포넌트<br>
 WEEK 06 — [2017.06.24](./README/0624.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 07 — [2017.07.01](./README/0701.md) &nbsp; ⌲ &nbsp; <br>
 WEEK 08 — [2017.07.08](./README/0708.md) &nbsp; ⌲ &nbsp; <br>
