@@ -22,8 +22,33 @@
           type="search" id="search" v-model="search">
       </div>
     </form>
+    <div class="container">
+      <table class="table">
+        <caption class="a11y-hidden">2017 사업부 직원 명단</caption>
+        <thead>
+          <tr>
+            <th v-for="heading in people_heading">
+              {{ heading }}
+              <button
+                type="button" class="button"
+                title="Show Descending Order"
+                aria-label="Show Descending Order">
+                <span class="arrow dsc"></span>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="person in people">
+            <td v-for="value of person">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
+<script src="../../common/DB/people.js"></script>
 <script src="../../common/vue/vue.js"></script>
 <script src="js/vue-filtering.sort.table.js"></script>
 </body>
