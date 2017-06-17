@@ -30,17 +30,19 @@
             <th v-for="heading in people_heading">
               {{ heading }}
               <button
+                @click="sortBy(heading)"
                 type="button" class="button"
-                title="Show Descending Order"
-                aria-label="Show Descending Order">
-                <span class="arrow dsc"></span>
+                :title="changeOrderLabel(heading)"
+                :aria-label="changeOrderLabel(heading)">
+                <span class="arrow" :class="changeOrderClass(heading)"></span>
               </button>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="person in people">
+          <tr v-for="person in people_contents">
             <td v-for="value of person">
+              {{value}}
             </td>
           </tr>
         </tbody>
