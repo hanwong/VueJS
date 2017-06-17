@@ -15,8 +15,8 @@
     <!--폼필드 (인풋, 버튼)-->
     <div class="form-field">
       <label class="a11y-hidden" for="add-list-item">새로운 할 일</label>
-      <input type="text" class="input" id="add-list-item" placeholder="치아 미백">
-      <button type="button" class="button is-add-list-item">등록</button>
+      <input @keyup.enter="addTodoItem" v-model="todo" type="text" class="input" id="add-list-item" placeholder="e.g) 치아 미백">
+      <button @click="addTodoItem" type="button" class="button is-add-list-item">등록</button>
     </div>
     <hr>
     <!--리스트 영역 (데이터 순환 렌더링: 체크박스, 레이블)-->
@@ -24,8 +24,8 @@
       <div class="zone-half">
         <h2 class="list-todo headline">할 일 목록</h2>
         <ul class="todolist">
-          <li class="todo-item" v-for="item of doList">
-            <label :style="{ 'text-decoration': item.complete ? 'line-through' : '' }">
+          <li class="todo-item" v-for="item of doList" v-if="!item.complete">
+            <label :style="changeLabelState(item)">
               <input type="checkbox" v-model="item.complete"> {{ item.desc }}
             </label>
           </li>
@@ -33,6 +33,13 @@
       </div>
       <div class="zone-half">
         <h2 class="list-todo-finished headline">수행한 일 목록</h2>
+        <ul class="complete-list">
+          <li v-for="item of completeList">
+            <label>
+              <input type="checkbox" v-model="item.complete"> {{ item.desc }}
+            </label>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
