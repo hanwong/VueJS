@@ -1,4 +1,4 @@
-[
+var people = [
   {
     "gender": "male",
     "name": {
