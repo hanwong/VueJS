@@ -11,6 +11,28 @@
 </head>
 <body>
 
+  <div class="demo-todolist container">
+    <!--폼필드 (인풋, 버튼)-->
+    <div class="form-field">
+      <label class="a11y-hidden" for="add-list-item">새로운 할 일</label>
+      <input type="text" id="add-list-item" placeholder="치아 미백">
+      <button type="button" class="button is-add-list-item">등록</button>
+    </div>
+    <hr>
+    <!--리스트 영역 (데이터 순환 렌더링: 체크박스, 레이블)-->
+    <div class="list-zone">
+      <h2 class="list-todo-headline">할 일 목록</h2>
+      <ul class="todolist">
+        <li class="todo-item" v-for="item of doList">
+          <label :style="{ 'text-decoration': item.complete ? 'line-through' : '' }">
+            <input type="checkbox" :checked="item.complete"> {{ item.desc }}
+          </label>
+        </li>
+      </ul>
+      <!--<h2 class="list-todo-finished-headline">수행한 일 목록</h2>-->
+    </div>
+  </div>
+
 <script src="../../common/vue/vue.js"></script>
 <script src="js/vue.todolist.js"></script>
 </body>
