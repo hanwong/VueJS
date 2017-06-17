@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>데이터 순환 테이블 렌더링 (필터링, 소팅) — Vue</title>
+  <link rel="stylesheet" href="../../common/fonts/SpoqaHanSans-kr.css">
+  <link rel="stylesheet" href="../../common/vue/vue.css">
+  <link rel="stylesheet" href="./css/vue-filter-sort-table.css">
+</head>
+<body>
+
+  <div class="filter-sort-table-demo" v-cloak>
+    <form class="form">
+      <div class="container">
+        <h1 class="headline is-1">필터링/정렬 테이블</h1>
+        <label for="search" class="a11y-hidden">데이터 필터링</label>
+        <input
+          class="input is-primary"
+          placeholder="필터링할 내용을 입력해주세요"
+          type="search" id="search" v-model="search">
+      </div>
+    </form>
+  </div>
+
+<script src="../../common/vue/vue.js"></script>
+<script src="js/vue-filtering.sort.table.js"></script>
+</body>
+</html>
