@@ -8,7 +8,6 @@
       people: people,
       search: '',
       people_heading: 'gender email phone'.split(' '),
-      people_contents: [],
       sort_key: '',
       sort_order: {
         gender: 1,
@@ -17,19 +16,18 @@
       }
     },
     created: function() {
-      var contents = this.people_contents;
       var headings = this.people_heading;
       this.people = this.people.map(function(person){
         var name = person.name;
         person.name.full = name.first + ' ' + name.last;
         return person;
       });
-      this.people.forEach(function(person){
+      this.people = this.people.map(function(person){
         var content = {};
         headings.forEach(function(item){
           content[item] = person[item];
         });
-        contents.push(content);
+        return content;
       });
     },
     methods: {
