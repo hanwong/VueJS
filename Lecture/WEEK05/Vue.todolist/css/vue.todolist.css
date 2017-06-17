@@ -1,4 +1,39 @@
 /*! vue.todolist.css © yamoo9.net, 2017 */
+
+.input {
+  border: 3px solid #eee;
+  padding: 0.45em 1em;
+}
+
+.input:hover {
+  border-color: #5dccdd;
+}
+
+.button {
+  background: #5dccdd;
+  border-radius: 3px;
+  border: none;
+  padding: 0.6em 1.2em;
+  color: #16545d;
+}
+
+.form-field {
+  padding-bottom: 1rem;
+
+}
+
+.headline {
+  font-weight: 300;
+}
+
 .demo-todolist {
   margin-top: 40px;
+}
+
+.list-zone {
+  display: flex;
+}
+
+.zone-half {
+  flex: 1;
 }
