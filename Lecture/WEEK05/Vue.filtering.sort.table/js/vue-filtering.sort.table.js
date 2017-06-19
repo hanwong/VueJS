@@ -48,7 +48,7 @@
       filteredPeople: function() {
         var filtered   = this.people;
         var search_key = this.search;
-        var sort_key   = this.sort_key; // ''
+        var sort_key   = this.sort_key;
         var order      = this.sort_order[sort_key];
         // 사용자 입력 값이 있을 경우
         if ( search_key ) {
