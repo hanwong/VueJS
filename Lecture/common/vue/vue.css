@@ -15,9 +15,9 @@ body {
   color: #323232;
 }
 
-.container {
+.wrapper {
   width: 80%;
-  max-width: 1280px;
+  max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -43,4 +43,29 @@ body {
 }
 caption.a11y-hidden {
   position: static;
+}
+
+/* Bulma <select> 확장 */
+.select {
+  height: auto;
+  min-height: 2.25em;
+}
+.select:after {
+  top: 1.15em;
+}
+.select select[multiple] {
+    all: initial;
+    font: inherit;
+    cursor: pointer;
+    display: block;
+    overflow-y: auto;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    padding: 0.5em 2.5em 0.5em 0.625em;
+    background-color: white;
+    color: #363636;
+}
+.select select[multiple]:active, .select select[multiple]:focus {
+    border-color: #00d1b2;
 }
