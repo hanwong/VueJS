@@ -24,7 +24,7 @@
           class="button is-primary unwatch"
           @click="unWatchQuery">관찰 중지</button>
         <p class="control">
-          <input type="text" class="input" @input="assignQuery" :value="query">
+          <input type="text" class="input" @input="assignQuery" :value="user.query">
         </p>
         <p class="box">
           {{ computed_query }}

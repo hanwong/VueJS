@@ -8,7 +8,12 @@
     el: '.demo',
     data: {
       headline: 'Vue Watch Property',
-      query: '입력을 기다리고 있습니다.', // 사용자 입력 초기 값
+      // query: '입력을 기다리고 있습니다.', // 사용자 입력 초기 값
+      // user 객체의 속성 query
+      // query: '',
+      user: {
+        query: ''
+      },
       watched_query: '' // 관찰할 속성의 기본 값
     },
     // Life Cycle Hook
@@ -18,16 +23,18 @@
       // 1. 라이프 사이클 훅 내에서 처리 가능
       // 2. Vue{} 참조 변수를 통해 외부에서 가능
       var vm = this;
-      unWatchQuery = vm.$watch('query', function(value, old_value) {
+      unWatchQuery = vm.$watch('user', function(value, old_value) {
         console.log('new: %s, old: %s', value, old_value);
         global.setTimeout(function() {
-          vm.watched_query = '관찰 속성: ' + value;
+          vm.watched_query = '관찰 속성: ' + value.query;
         }, 1000);
+      },{
+        deep: true
       });
     },
     methods: {
       assignQuery: function(e) {
-        this.query = e.target.value;
+        this.user.query = e.target.value;
       },
       // query 속성 관찰(watch)을 멈출 수 있는 메서드
       unWatchQuery: function() {
@@ -41,7 +48,7 @@
     computed: {
       // 계산된 속성 처리
       computed_query: function() {
-        return '계산된 속성: ' + this.query;
+        return '계산된 속성: ' + this.user.query;
       }
       // 오류 발생!!!
       // watch 속성과 달리 computed 속성은 data 속성과 동일해서는 안된다.
@@ -53,6 +60,10 @@
     // 지연된 시간 이후에 값을 변경한 후, 화면에 렌더링
     // Server 통신 처리 결과를 수행할 때 적합
     watch: {
+      // query: {
+      //   handler: function(v, n) {},
+      //   deep: true
+      // },
       // computed 속성과 달리 watch 속성은 data 속성과 동일해도 된다.
       // query: function(value, old_value) {
       //   var vm = this;
