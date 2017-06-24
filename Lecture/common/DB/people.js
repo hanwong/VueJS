@@ -739,4 +739,4 @@ var people = [
     },
     "nat": "CA"
   }
-]
+];
