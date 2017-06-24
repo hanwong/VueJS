@@ -16,16 +16,18 @@
 
   <div class="demo container">
 
-    <link-github>
-      <span>hi, there. this is link element.</span>
-    </link-github>
+    <!--<global-comp>
+      <h3>전역 컴포넌트 사용 예시</h3>
+    </global-comp>-->
 
+    <blockquote
+      :is="myComp"
+    ></blockquote>
 
   </div>
 
-
   <script src="../../common/vue/vue.js"></script>
-  <script src="js/vue.start.js"></script>
+  <script src="js/vue.comp.js"></script>
 </body>
 
 </html>

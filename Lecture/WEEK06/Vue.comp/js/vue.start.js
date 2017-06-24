@@ -5,19 +5,7 @@
   // 전역 컴포넌트
   Vue.component('link-github', {
     name: 'hyperlink-github',
-    template: '\
-      <a\
-        aria-label="GitHub"\
-        href="https://github.com/"\
-        class="button">\
-        <span class="icon is-small">\
-          <i class="fa fa-github" aria-hidden="true"></i>\
-        </span> {{content}}\
-      </a>\
-    ',
-    // data: {
-    //   content: 'GitHub'
-    // }
+    template: '#link-github-template',
     data: function() {
       return  {
         content: 'GitHub'
