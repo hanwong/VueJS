@@ -19,6 +19,10 @@
     <div class="columns">
       <div class="column is-6 is-offset-3">
         <h1 class="title is-1" v-text="headline"></h1>
+        <button
+          type="button"
+          class="button is-primary unwatch"
+          @click="unWatchQuery">관찰 중지</button>
         <p class="control">
           <input type="text" class="input" @input="assignQuery" :value="query">
         </p>
