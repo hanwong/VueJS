@@ -1,5 +1,6 @@
 (function(global, Vue){
   'use strict';
+
   // 전역 컴포넌트 등록 및 슬롯 사용
   Vue.component('global-comp', {
     template: `
@@ -26,7 +27,7 @@
     template: '<p lang="en" v-text="para_content"></p>',
     data: function() {
       return {
-        para_content: 'Jey!!! Component'
+        para_content: 'Hey!!! Component'
       };
     }
   });
@@ -34,6 +35,7 @@
   new Vue({
     el: '.demo',
     data: {
+      // 동적 컴포넌트 바인딩 :is
       myComp: 'global-comp'
     }
   });

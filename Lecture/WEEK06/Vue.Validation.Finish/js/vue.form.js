@@ -1,5 +1,4 @@
 /*! vue.start.js © yamoo9.net, 2017 */
-// http://freefrontend.com/css-forms/#contact-forms
 // http://fontawesome.io/cheatsheet/
 ;(function(global, Vue){
   'use strict';
