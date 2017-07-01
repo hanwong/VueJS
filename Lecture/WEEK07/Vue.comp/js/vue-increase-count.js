@@ -19,14 +19,22 @@
   };
 
   var TotalCount = {
-    template: '<div class="total-count">\
-      <p class="total-count">총 클릭 수: </p>\
+    template: '<div class="total-count-container">\
+      <p class="total-count">총 클릭 수: {{total}}</p>\
       <slot></slot>\
-    </div>'
+    </div>',
+    data: function() {
+      return {
+        total: 0
+      }
+    }
   };
 
   new Vue({
     el: '.app',
+    data: {
+      buttons: ['A', 'B', 'C']
+    },
     components: {
       totalCount: TotalCount,
       countIncreaseButton: CountIncreaseButton

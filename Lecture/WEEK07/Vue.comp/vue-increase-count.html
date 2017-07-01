@@ -14,6 +14,19 @@
   html, body {
     font-size: 100%;
   }
+  .container {
+    padding: 2em;
+  }
+  .total-count-container {
+    padding: 1em 0;
+  }
+  .total-count {
+    margin-bottom: 1em;
+  }
+  .box {
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
   </style>
 </head>
 
@@ -21,8 +34,11 @@
 
   <div class="app container">
     <total-count>
-      <count-increase-button name="카운트 증가 버튼 A"></count-increase-button>
-      <count-increase-button name="카운트 증가 버튼 B"></count-increase-button>
+      <count-increase-button
+        key="index"
+        v-for="(button, index) in buttons"
+        :name="'카운트 증가 버튼' + button">
+      </count-increase-button>
     </total-count>
   </div>
 
