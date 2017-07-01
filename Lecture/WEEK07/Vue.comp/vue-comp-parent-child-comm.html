@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>카운트 증가 이벤트 시스템 — Vue</title>
+  <title>컴포넌트 — Vue</title>
   <link rel="stylesheet" href="../../common/fonts/SpoqaHanSans-kr.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,32 +14,22 @@
   html, body {
     font-size: 100%;
   }
-  .container {
-    padding: 2em;
-  }
-  .total-count-container {
-    padding: 1em 0;
-  }
-  .total-count {
-    margin-bottom: 1em;
-  }
-  .box {
-    margin-top: 5px;
-    margin-bottom: 30px;
-  }
   </style>
 </head>
 
 <body>
 
   <div class="app container">
-    <div class="app-container">
-      <total-count></total-count>
-    </div>
+
+    <p>{{total}}</p>
+
+    <count-button @increase="updateTotal"></count-button>
+    <count-button @increase="updateTotal"></count-button>
+
   </div>
 
   <script src="../../common/vue/vue.js"></script>
-  <script src="js/vue-increase-count.js"></script>
+  <script src="js/vue-comp-parent-child-comm.js"></script>
 </body>
 
 </html>

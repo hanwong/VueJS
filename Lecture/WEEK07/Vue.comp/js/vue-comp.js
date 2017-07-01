@@ -22,7 +22,7 @@
   var Task = {
     // template: '<li class="task"><slot></slot></li>',
     template: '<li class="task">\
-      <label> <input type="checkbox" v-model="child_item.finished"> {{child_item.content}}</label>\
+      <label> <input type="checkbox" :checked.sync="child_item.finished"> {{child_item.content}}</label>\
     </li>',
     // 자식 컴포넌트는 부모 컴포넌트로 부터
     // 데이터를 전달 받을 수 있다.
