@@ -86,7 +86,7 @@
           {content: '신문 읽기', finished: false},
           {content: '사무실 청소', finished: true},
           {content: '아침 회의', finished: false},
-          { content: 1234, finished: [] }
+          // { content: 1234, finished: [] }
         ]
       }
     }
