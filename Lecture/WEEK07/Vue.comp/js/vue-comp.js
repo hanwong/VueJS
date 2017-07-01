@@ -35,13 +35,27 @@
     props: {
       item: {
         type: Object,
-        // required: true,
-        default: function(){
-          return {
-            content: '할 일',
-            finished: false
-          };
+        required: true,
+        validator: function(value) {
+          var result = 'content' in value && 'finished' in value;
+          if (!result) {
+            throw "content, finished 속성이 반드시 포함되어 있어야 합니다.";
+          }
+          // 객체의 속성 타입 검증
+          if (
+            typeof value.content !== 'string' ||
+            typeof value.finished !== 'boolean'
+          ) {
+            throw 'content는 문자열로, finished 속성은 불리언으로 설정해야 합니다.';
+          }
+          return result;
         }
+        // default: function(){
+        //   return {
+        //     content: '할 일',
+        //     finished: false
+        //   };
+        // }
       }
     },
     // 방법 1
@@ -62,7 +76,7 @@
     components: { task: Task },
     template: '\
       <ul class="tasks">\
-        <task :key="\'task-\'+index" v-for="(item, index) in items"></task>\
+        <task :item="item" :key="\'task-\'+index" v-for="(item, index) in items"></task>\
       </ul>\
     ',
     data: function(){
@@ -71,7 +85,8 @@
           {content: '조깅', finished: false},
           {content: '신문 읽기', finished: false},
           {content: '사무실 청소', finished: true},
-          {content: '아침 회의', finished: false}
+          {content: '아침 회의', finished: false},
+          { content: 1234, finished: [] }
         ]
       }
     }
