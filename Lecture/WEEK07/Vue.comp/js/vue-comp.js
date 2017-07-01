@@ -20,22 +20,58 @@
   // 테스크 수행하는 컴포넌트 등록
   // 자식 컴포넌트
   var Task = {
-    template: '<li class="task"><slot></slot></li>',
+    // template: '<li class="task"><slot></slot></li>',
+    template: '<li class="task">\
+      <label> <input type="checkbox" v-model="child_item.finished"> {{child_item.content}}</label>\
+    </li>',
+    // 자식 컴포넌트는 부모 컴포넌트로 부터
+    // 데이터를 전달 받을 수 있다.
+    // props를 사용하여 단, 단방향 통신이다.
+    // 자식은 부모의 속성을 함부로 변경하면 안된다.
+    // 그럼 어떻게 하나?
+    // 자식이 부모에게 변경이 필요함을 이벤트로 알린다.
+    // props: ['content', 'fin']
+    // props: ['item'],
+    props: {
+      item: {
+        type: Object,
+        // required: true,
+        default: function(){
+          return {
+            content: '할 일',
+            finished: false
+          };
+        }
+      }
+    },
+    // 방법 1
+    // data: function() {
+    //   return {
+    //     child_item: Object.assign({}, this.item)
+    //   }
+    // },
+    // 방법 2
+    computed: {
+      child_item: function() {
+        return Object.assign({}, this.item);
+      }
+    }
   };
   // 부모 컴포넌트
   var Tasks = {
     components: { task: Task },
     template: '\
       <ul class="tasks">\
-        <task :key="\'task-\'+index" v-for="(item, index) in items">\
-          {{item}}\
-        </task>\
+        <task :key="\'task-\'+index" v-for="(item, index) in items"></task>\
       </ul>\
     ',
     data: function(){
       return {
         items: [
-          'one', 'two', 'three', 'four'
+          {content: '조깅', finished: false},
+          {content: '신문 읽기', finished: false},
+          {content: '사무실 청소', finished: true},
+          {content: '아침 회의', finished: false}
         ]
       }
     }
