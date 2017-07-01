@@ -13,9 +13,6 @@
     `,
     components: {
       childComp: global.ChildComp
-    },
-    data: function() {
-      return {}
     }
   });
 
