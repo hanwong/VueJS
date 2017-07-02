@@ -1,4 +1,4 @@
-/*! vue.start.js © yamoo9.net, 2017 */
+/*! vue-global-event-bus.js © yamoo9.net, 2017 */
 ;(function(global, Vue){
   'use strict';
 
@@ -51,9 +51,9 @@
         // console.log('clicked button');
         vm.total++;
       });
-      global.setTimeout(function(){
-        global.EventBus.$off();
-      }, 3000);
+      // global.setTimeout(function(){
+      //   global.EventBus.$off();
+      // }, 3000);
     },
     data: function() {
       return {

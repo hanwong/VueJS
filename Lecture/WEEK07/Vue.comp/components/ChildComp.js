@@ -5,7 +5,7 @@
   // Vue 객체 생성
   global.ChildComp = Vue.extend({
     template: `
-      <div class="child">
+      <div class="child" @click="callParent">
         <slot :content="text"></slot>
       </div>
     `,
@@ -15,6 +15,11 @@
     data: function() {
       return {
         text: '오늘도 Vue를 정복해보았습니다.'
+      }
+    },
+    methods: {
+      callParent: function(){
+        this.$emit('call-parent');
       }
     }
   });
