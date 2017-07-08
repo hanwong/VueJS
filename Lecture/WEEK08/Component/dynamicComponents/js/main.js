@@ -6,7 +6,8 @@
     el: '.app',
     // 사용자 정의 컴포넌트 등록
     components: {
-      detailProduct: _.DetailProduct
+      detailProduct: _.DetailProduct,
+      simpleProduct: _.SimpleProduct
     },
     // 라이프 사이클 훅을 사용해서 Vue 인스턴스 생성 이전 시점에
     // 비동기 요청으로 Vue 인스턴스의 데이터 products로 바인딩
