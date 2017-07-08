@@ -15,7 +15,24 @@
 
     <div class="app container">
       <div class="columns">
-        <div class="column is-6 is-offset-3">
+
+        <div class="column is-4">
+
+          <tabs>
+            <tab headine="Products">
+              <p>Products: Mujer uno dolor más.</p>
+            </tab>
+            <tab headine="Videos" :select="true">
+              <p>Videos: Mujer uno dolor más.</p>
+            </tab>
+            <tab headine="Games">
+              <p>Games: Mujer uno dolor más.</p>
+            </tab>
+          </tabs>
+
+        </div>
+
+        <div class="column is-6 is-offset-1">
 
           <div class="box">
             <button
@@ -56,6 +73,8 @@
     <script src="/common/vue/vue.js"></script>
     <script src="./components/Message.js"></script>
     <script src="./components/Modal.js"></script>
+    <script src="./components/Tabs.js"></script>
+    <script src="./components/Tab.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

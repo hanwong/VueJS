@@ -1,4 +1,4 @@
-/*! vue.start.js © yamoo9.net, 2017 */
+/*! main.js © yamoo9.net, 2017 */
 ;(function(global, Vue){
   'use strict';
 
@@ -6,7 +6,9 @@
     el: '.app',
     components: {
       message: Vue.Message,
-      modal: Vue.Modal
+      modal: Vue.Modal,
+      tabs: Vue.Tabs,
+      tab: Vue.Tab,
     },
     data: {
       is_actived_modal: false
