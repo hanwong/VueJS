@@ -10,6 +10,11 @@
     },
     data: {
       is_actived_modal: true
+    },
+    methods: {
+      deactiveModal: function() {
+        this.is_actived_modal = false;
+      }
     }
   });
 

@@ -4,7 +4,7 @@
 
   Vue.Modal = {
     template: `
-      <div class="modal" :class="{'is-active': is_active}">
+      <div class="modal" :class="{'is-active': active}">
         <div @click="closeModal" class="modal-background"></div>
         <div class="modal-content">
           <slot></slot>
@@ -16,24 +16,17 @@
           @click="closeModal"></button>
       </div>
     `,
-    mounted: function(){
-      // data 속성 = props 속성
-      this.is_active = this.active;
-    },
-    data: function() {
-      return {
-        is_active: false
-      }
-    },
-    methods: {
-      closeModal: function(){
-        this.is_active = false;
-      }
-    },
     props: {
       active: {
         type: Boolean,
         default: false
+      }
+    },
+    methods: {
+      closeModal: function(){
+        // this.active = false;
+        // console.log('child');
+        this.$emit('close');
       }
     }
   };
