@@ -12,12 +12,26 @@
   </head>
   <body>
 
-    <div class="app">
-      <span class="currency">{{ 120193 | number | currency }}</span>
-      <span class="currency">{{ 10000 | number | currency }}</span>
-      <span class="currency">{{ 8090 | number | currency }}</span>
-      <span class="currency">{{ 100 | number | currency }}</span>
-      <span class="currency">{{ 1293 | number | currency }}</span>
+    <div class="app container">
+      <div class="columns">
+        <div class="column is-3">
+          <p class="has-text-right">
+            <span class="currency">{{ 120193 | currency }}</span>
+          </p>
+          <p class="has-text-right">
+            <span class="currency">{{ 10000 | currency }}</span>
+          </p>
+          <p class="has-text-right">
+            <span class="currency">{{ 8090 | currency }}</span>
+          </p>
+          <p class="has-text-right">
+            <span class="currency">{{ 100 | currency }}</span>
+          </p>
+          <p class="has-text-right">
+            <span class="currency">{{ 1293 | currency }}</span>
+          </p>
+        </div>
+      </div>
     </div>
 
 
