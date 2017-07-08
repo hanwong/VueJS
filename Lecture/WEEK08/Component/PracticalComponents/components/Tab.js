@@ -4,11 +4,23 @@
 
   Vue.Tab = {
     template: `
-      <li role="presentation" :class="{'is-active': select}">
-        <a href role="tab">test</a>
-      </li>
+      <div v-show="is_selected" role="tabpanel">
+        <slot></slot>
+      </div>
     `,
+    mounted: function() {
+      this.is_selected = this.select;
+    },
+    data: function() {
+      return {
+        is_selected: false
+      }
+    },
     props: {
+      headline: {
+        type: String,
+        required: true
+      },
       select: {
         type: Boolean,
         default: false

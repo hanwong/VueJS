@@ -19,7 +19,12 @@
       },
       deactiveModal: function() {
         this.is_actived_modal = false;
-      }
+      },
+      // selectTab: function(tabs, selected_tab) {
+      //   tabs.forEach(function(tab) {
+
+      //   });
+      // }
     }
   });
 

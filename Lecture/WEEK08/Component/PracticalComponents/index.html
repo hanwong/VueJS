@@ -18,15 +18,25 @@
 
         <div class="column is-4">
 
+          <!--<tabs @change="selectTab">-->
           <tabs>
-            <tab headine="Products">
-              <p>Products: Mujer uno dolor más.</p>
+            <tab headline="Products">
+              <div class="box">
+                <h6 class="title is-4">Products</h6>
+                Product Tab Contents
+              </div>
             </tab>
-            <tab headine="Videos" :select="true">
-              <p>Videos: Mujer uno dolor más.</p>
+            <tab headline="Videos" :select="true">
+              <div class="box">
+                <h6 class="title is-4">Videos</h6>
+                Video Tab Contents
+              </div>
             </tab>
-            <tab headine="Games">
-              <p>Games: Mujer uno dolor más.</p>
+            <tab headline="Games">
+              <div class="box">
+                <h6 class="title is-4">Games</h6>
+                Game Tab Contents
+              </div>
             </tab>
           </tabs>
 
