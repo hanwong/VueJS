@@ -5,8 +5,12 @@
   new Vue({
     el: '.app',
     components: {
-      message: Vue.Message
+      message: Vue.Message,
+      modal: Vue.Modal
+    },
+    data: {
+      is_actived_modal: true
     }
-  })
+  });
 
 })(window, window.Vue);

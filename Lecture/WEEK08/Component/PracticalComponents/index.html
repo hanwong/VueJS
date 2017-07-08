@@ -17,6 +17,14 @@
       <div class="columns">
         <div class="column is-6 is-offset-3">
 
+          <!--<modal></modal>-->
+          <modal :active="is_actived_modal">
+            <div class="box">
+              <h5 class="title is-5">Bulma.io Modal Component</h5>
+              <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Вопроса ты собрал силуэт послушавшись первую над, даль курсивных переулка.</p>
+            </div>
+          </modal>
+
           <message style-class="is-primary custom">
             <h3 slot="header">오늘도 행복하길!</h3>
             <p slot="body">비오지만, 행복한 걸로~</p>
@@ -38,6 +46,7 @@
 
     <script src="/common/vue/vue.js"></script>
     <script src="./components/Message.js"></script>
+    <script src="./components/Modal.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
