@@ -17,6 +17,15 @@
       <div class="columns">
         <div class="column is-6 is-offset-3">
 
+          <div class="box">
+            <button
+              @click="activeModal"
+              class="button is-primary"
+              type="button">
+              Show Modal
+            </button>
+          </div>
+
           <!--<modal></modal>-->
           <modal @close="deactiveModal" :active="is_actived_modal">
             <div class="box">

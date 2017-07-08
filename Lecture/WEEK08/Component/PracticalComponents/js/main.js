@@ -9,9 +9,12 @@
       modal: Vue.Modal
     },
     data: {
-      is_actived_modal: true
+      is_actived_modal: false
     },
     methods: {
+      activeModal: function(){
+        this.is_actived_modal = true;
+      },
       deactiveModal: function() {
         this.is_actived_modal = false;
       }
