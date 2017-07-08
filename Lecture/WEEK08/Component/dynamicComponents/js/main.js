@@ -30,7 +30,13 @@
     // Vue 인스턴스 데이터
     data: {
       // 비동기 통신으로 데이터가 바인딩 되는 데이터 속성
-      products: []
+      products: [],
+      kind_of_component: 'detail'
+    },
+    computed: {
+      component_type: function(){
+        return this.kind_of_component + '-product';
+      }
     }
   });
 
