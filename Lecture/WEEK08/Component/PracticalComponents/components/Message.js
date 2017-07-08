@@ -4,7 +4,10 @@
 
   Vue.Message = {
     template: `
-      <article v-if="is_visible" class="message is-primary">
+      <article
+        v-if="is_visible"
+        class="message"
+        :class="styleClass">
         <div class="message-header">
           <slot name="header"></slot>
           <button
@@ -18,6 +21,12 @@
         </div>
       </article>
     `,
+    props: {
+      styleClass: {
+        type: [String, Array],
+        default: ''
+      }
+    },
     data: function() {
       return {
         is_visible: true
