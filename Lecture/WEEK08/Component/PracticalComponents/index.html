@@ -20,19 +20,19 @@
 
           <!--<tabs @change="selectTab">-->
           <tabs>
-            <tab headline="Products">
+            <tab :headline="'Products' | uppercase">
               <div class="box">
                 <h6 class="title is-4">Products</h6>
                 Product Tab Contents
               </div>
             </tab>
-            <tab headline="Videos" :select="true">
+            <tab :headline="'Videos' | lowercase" :select="true">
               <div class="box">
                 <h6 class="title is-4">Videos</h6>
                 Video Tab Contents
               </div>
             </tab>
-            <tab headline="Games">
+            <tab :headline="'Games' | uppercase">
               <div class="box">
                 <h6 class="title is-4">Games</h6>
                 Game Tab Contents
@@ -81,6 +81,9 @@
     </div>
 
     <script src="/common/vue/vue.js"></script>
+    <!-- 필터 -->
+    <script src="https://cdn.jsdelivr.net/vue2-filters/0.1.9/vue2-filters.min.js"></script>
+    <!-- 컴포넌트 -->
     <script src="./components/Message.js"></script>
     <script src="./components/Modal.js"></script>
     <script src="./components/Tabs.js"></script>
