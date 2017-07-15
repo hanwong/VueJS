@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>주제 — Vue</title>
+    <title>믹스인(객체 합성) — Vue</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/common/fonts/SpoqaHanSans-kr.css">
     <link rel="stylesheet" href="/common/vue/vue.css">
+    <link rel="stylesheet" href="css/vue.mixin.css">
   </head>
   <body>
 
+    <div class="app">
+       <todos :list="[1,2, 3]"></todos>
+      <do-lists :list="[10,20,30]"></do-lists>
+      <its-items :list="[100,200,300]"></its-items>
+    </div>
 
 
     <script src="/common/vue/vue.js"></script>
+    <script src="js/vue.mixin.js"></script>
   </body>
 </html>
