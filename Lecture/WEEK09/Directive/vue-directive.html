@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>주제 — Vue</title>
+    <title>디렉티브(Directive) — Vue</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/common/fonts/SpoqaHanSans-kr.css">
     <link rel="stylesheet" href="/common/vue/vue.css">
+    <link rel="stylesheet" href="css/vue.directive.css">
   </head>
   <body>
 
-
+    <div class="app container" v-cloak>
+      <div class="columns">
+        <div class="column is-10-mobile is-offset-1-mobile is-4 is-offset-4">
+          <div class="content">
+            <h1>Vue.js 디렉티브(Directive)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/common/vue/vue.js"></script>
+    <script src="//unpkg.com/vue2-filters@0.1.9/dist/vue2-filters.min.js"></script>
+    <script src="js/vue.directive.js"></script>
   </body>
 </html>

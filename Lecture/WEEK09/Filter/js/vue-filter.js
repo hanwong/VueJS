@@ -6,14 +6,17 @@
   Vue.filter('repeat', function(v, c, d){
     d = d || ', ';
     for ( var r='', i=0; i<c; i++ ){
-      if ( i === (c - 1) ) { d = ''; }
+      i === (c - 1) && (d = '');
       r += v + d;
     }
     return r;
   });
   Vue.filter('ko-currency', function(v, sign) {
-    var currency = Vue.filter('currency'); // 존재할 경우, 함수 반환
+    // 의존 필터가 존재할 경우, 해당 함수 반환
+    var currency = Vue.filter('currency');
+    // sign 매개변수 값 초기화
     sign = sign || '원';
+    // 의존 필터 존재 유무 확인 후 처리
     if( !currency ) {
       return currency(v, '', 0) + sign;
     } else {
@@ -25,9 +28,11 @@
     }
   });
 
+  // 루트 Vue 인스턴스 생성
   global.vm = new Vue({
     el: '.app',
     data: {
+      // 필터 검증 콘텐츠
       filterContents: [
         'mixin',
         'filter',
