@@ -27,6 +27,7 @@
             </button>
             <div class="box focus-el" v-focus>Vue 포커스
               <my-span
+                v-custom="{animate: true, delay: 2000}"
                 @call="numbers.pop()"
                 :data="numbers"
                 v-if="is_visible_directive"></my-span>

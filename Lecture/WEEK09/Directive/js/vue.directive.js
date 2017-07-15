@@ -27,7 +27,7 @@
   // Directive Name:    'marking'
   Vue.directive('marking', {
     bind: function(el, o) {
-      var value = o.value || '#ff0';
+      var value = o.value || '#333';
       var delay = o.modifiers.delay || 0;
       if ( o.modifiers.animate ) {
         el.style.transition = 'all 1s ease';
@@ -47,10 +47,20 @@
     // bind, inserted, update, componentUpdated, unbind
     unbind: function(el) {
       console.log('unbind directive');
+      // $('body').css({
+      //   height: '100vh',
+      //   transition: 'all 1s ease-out',
+      //   background: '#3273dc'
+      // });
       global.document.body.style.height = '100vh';
       global.document.body.style.transition = 'all 1s ease-out';
       global.document.body.style.background = '#3273dc';
     }
+  });
+
+  Vue.directive('custom', function(el, binding, vNode){
+    // Hook: bind / update
+    console.log(binding.value);
   });
 
   global.vm = new Vue({
@@ -75,7 +85,7 @@
           <div>\
             <span\
               class="my-span"\
-              v-marking:color.animate="\'tan\'"\
+              v-marking:color.animate.delay="\'lightgreen\'"\
               @click="$emit(\'call\')"\
               v-for="item in data"> {{item}} </span>\
           </div>\
