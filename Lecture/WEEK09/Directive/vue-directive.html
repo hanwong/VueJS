@@ -19,8 +19,18 @@
           <div class="content">
 
             <h1>Vue.js 디렉티브(Directive)</h1>
-            <button @click="is_visible_directive = false" class="button is-info">toggle directive</button>
-            <a href="" v-focus>Vue 포커스 <span v-if="is_visible_directive" v-marking>디렉티브 엘리먼트</span></a>
+            <button
+              type="button"
+              class="button is-info"
+              @click="is_visible_directive = false">
+              toggle directive
+            </button>
+            <div class="box focus-el" v-focus>Vue 포커스
+              <my-span
+                @call="numbers.pop()"
+                :data="numbers"
+                v-if="is_visible_directive"></my-span>
+            </div>
 
           </div>
         </div>
