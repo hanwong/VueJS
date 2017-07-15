@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>양방향 데이터 바인딩 — Vue</title>
+  <link rel="stylesheet" href="css/vue.css">
+</head>
+<body>
+
+  <!--뷰에서 마운트된 컨테이너 요소
+  뷰 컴포넌트-->
+  <div class="demo">
+
+    <!--컨트롤을 수행할 마크업(템플릿)-->
+    <input
+      type="text"
+      placeholder="프레임워크를 입력해주세요."
+      v-model="newItem">
+    <hr>
+    <!-- 모델 데이터에 바인딩 -->
+    <p> {{ newItem }} </p>
+
+  </div>
+
+
+<script src="https://unpkg.com/vue"></script>
+<script src="js/vue.data.binding.js"></script>
+</body>
+</html>
