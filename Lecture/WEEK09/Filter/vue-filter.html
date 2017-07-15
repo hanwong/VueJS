@@ -9,11 +9,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/common/fonts/SpoqaHanSans-kr.css">
     <link rel="stylesheet" href="/common/vue/vue.css">
+    <link rel="stylesheet" href="css/vue-filter.css">
   </head>
   <body>
 
+    <div class="app container">
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <div class="content">
+            <h1 class="title is-2">Vue.js Filter</h1>
+            <ul>
+              <li v-for="content in filterBy(filterContents, 'mix')">
+                <!-- {{ content | repeat(4, ' / ') }} -->
+                <!-- {{ content | capitalize }} -->
+                <!-- {{ content | uppercase | lowercase }} -->
+                <!-- {{ content | placeholder('this is default content.') }} -->
+                {{ content | truncate(100) }}
+              </li>
+            </ul>
 
+            <p> {{ 2030400 | currency('', 0) }}원</p>
+            <p> {{ 2030400 | ko-currency(' won') }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/common/vue/vue.js"></script>
+    <script src="//unpkg.com/vue2-filters@0.1.9/dist/vue2-filters.min.js"></script>
+    <script src="js/vue-filter.js"></script>
   </body>
 </html>
