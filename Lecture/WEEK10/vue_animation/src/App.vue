@@ -1,12 +1,13 @@
 <template lang="pug">
   #app
     h1 {{ name }}
-    app-nav(:contents="contents")
+    app-nav(:links="links" @removeLink="removeLink")
 </template>
 
 <script>
 // 컴포넌트 객체 불러오기
 import AppNav from './components/AppNav.vue';
+import EventBus from './EventBus.vue';
 
 export default {
   name: 'app',
@@ -14,15 +15,32 @@ export default {
   components: {
     'app-nav': AppNav
   },
+  mounted () {
+    EventBus.$on('removeLink', i => {
+      this.removeLink(i);
+    });
+  },
   // App 컴포넌트 데이터
   data () {
     return {
       name: 'Vue.js Application using webpack',
-      contents: [
+      links: [
         {
-          link: 'https://google.com', content:'Google'
-        }
+          href: 'https://google.com', content:'Google'
+        },
+        {
+          href: 'https://daum.net', content:'DAUM'
+        },
+        {
+          href: 'https://apple.com', content:'Apple'
+        },
       ]
+    }
+  },
+  methods: {
+    removeLink(i){
+      console.log('remove link request by child component');
+      this.links.splice(i, 1);
     }
   }
 }
