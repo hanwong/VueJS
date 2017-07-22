@@ -17,7 +17,7 @@
           .form-group
             label.sr-only(for="book_link") 링크:
             input.form-control#book_link(placeholder="링크" @input="updateBookLink" :value="new_book.link")
-          button(type="button").btn.btn-default 등록
+          button(type="submit").btn.btn-default 등록
     .panel.panel-default
       .panel-heading
         h3 Firebase 데이터 Books
@@ -38,29 +38,11 @@
 </template>
 
 <script>
+let firebase_api = 'https://vue-aync-comm-ce798.firebaseio.com/books.json';
 export default {
   name: 'app',
-  beforeCreate () {
-
-    // App 컴포넌트 참조 변수
-    let app = this;
-    // Vue Resource 객체의 get() 메서드를 사용
-    let resource = this.$http.get('https://vue-aync-comm-ce798.firebaseio.com/books.json');
-    // Proimse 객체를 반환
-    resource
-      .then(success, fail)
-      // .then(data => console.log(data));
-
-    // 통신 성공할 경우 콜백 함수
-    function success(response){
-      app.books = response.data;
-      // return response.json();
-    }
-    // 통신 실패 시에 콜백 함수
-    function fail(error){
-      console.error(error.message);
-    }
-
+  created () {
+    this.getFirebaseData();
   },
   data () {
     return {
@@ -73,6 +55,63 @@ export default {
     }
   },
   methods: {
+    getFirebaseData(){
+      // App 컴포넌트 참조 변수
+      let app = this;
+      // Vue Resource 객체의 get() 메서드를 사용
+      // Proimse 객체를 반환
+      this.$http.get(firebase_api).then(success, fail);
+
+      // 통신 성공할 경우 콜백 함수
+      function success(response){
+        app.books = response.data;
+        // return response.json();
+      }
+      // 통신 실패 시에 콜백 함수
+      function fail(error){
+        console.error(error.message);
+      }
+    },
+    addBook(){
+
+      // 유효성 검사
+      let book = this.new_book;
+      let alert_prop = '';
+      for ( let prop in book ) {
+        if ( book.hasOwnProperty(prop) && book[prop].trim() === '' ) {
+          switch(prop) {
+            case 'title': alert_prop = '제목'; break;
+            case 'author': alert_prop = '저자'; break;
+            case 'link': alert_prop = '링크';
+          }
+          window.alert(`${alert_prop} 입력 필드를 채워주세요.`);
+          document.querySelector(`#book_${prop}`).focus();
+          return; // 함수 종료
+        }
+      }
+
+      // Firebase 통신 수행
+      // POST 통신(콘텐츠 추가)
+      this.$http
+        .post(firebase_api, book)
+        .then(
+          response=>{
+            console.log(response);
+
+            // 등록 버튼 누른 후에 View를 업데이트 하는 방법
+            // 방법 1.
+              // 다시 GET 한다.
+              this.getFirebaseData();
+            // 방법 2.
+              // response 응답 데이터에는
+              // 새롭게 추가된 콘텐츠가 반환된다.
+              // 이를 this.books에 push 한다.
+          },
+          error=>{
+            console.error(error.message);
+          }
+        );
+    },
     updateBookTitle(e){
       this.new_book.title = e.target.value;
     },
