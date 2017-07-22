@@ -27,4 +27,4 @@ WEEK 06 — [2017.06.24](./README/0624.md) &nbsp; ⌲ &nbsp; 관찰 속성, 폼 
 WEEK 07 — [2017.07.01](./README/0701.md) &nbsp; ⌲ &nbsp; 컴포넌트 Part 2, 컴포넌트 간 통신<br>
 WEEK 08 — [2017.07.08](./README/0708.md) &nbsp; ⌲ &nbsp; 컴포넌트 Part 3<br>
 WEEK 09 — [2017.07.15](./README/0715.md) &nbsp; ⌲ &nbsp; 필터, 디렉티브, 플러그인, Vue CLI, 트랜지션<br>
-WEEK 10 — [2017.07.22](./README/0722.md) &nbsp; ⌲ &nbsp; <br>
+WEEK 10 — [2017.07.22](./README/0722.md) &nbsp; ⌲ &nbsp; 트랜지션, vue-resource, axios, Firebase, vue-router, vuex<br>
