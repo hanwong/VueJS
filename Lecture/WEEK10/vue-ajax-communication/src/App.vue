@@ -38,7 +38,6 @@
 </template>
 
 <script>
-let firebase_api = 'https://vue-aync-comm-ce798.firebaseio.com/books.json';
 export default {
   name: 'app',
   created () {
@@ -60,7 +59,7 @@ export default {
       let app = this;
       // Vue Resource 객체의 get() 메서드를 사용
       // Proimse 객체를 반환
-      this.$http.get(firebase_api).then(success, fail);
+      this.$http.get('').then(success, fail);
 
       // 통신 성공할 경우 콜백 함수
       function success(response){
@@ -93,19 +92,12 @@ export default {
       // Firebase 통신 수행
       // POST 통신(콘텐츠 추가)
       this.$http
-        .post(firebase_api, book)
+        .post('', book)
         .then(
           response=>{
-            console.log(response);
-
             // 등록 버튼 누른 후에 View를 업데이트 하는 방법
-            // 방법 1.
-              // 다시 GET 한다.
+            // 다시 GET 한다.
               this.getFirebaseData();
-            // 방법 2.
-              // response 응답 데이터에는
-              // 새롭게 추가된 콘텐츠가 반환된다.
-              // 이를 this.books에 push 한다.
           },
           error=>{
             console.error(error.message);
