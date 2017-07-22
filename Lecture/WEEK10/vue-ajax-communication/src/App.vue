@@ -8,21 +8,32 @@
         h3 Book 추가
       .panel-body
         form.form-inline(@submit.prevent="addBook")
-          label(for="book_title") 제목:
-          input#book_title(@input="updateBookTitle" :value="new_book.title")
-          label(for="book_author") 저자:
-          input#book_author(@input="updateBookAuthor" :value="new_book.author")
-          label(for="book_link") 링크:
-          input#book_link(@input="updateBookLink" :value="new_book.link")
-
+          .form-group
+            label.sr-only(for="book_title") 제목:
+            input.form-control#book_title(placeholder="제목" @input="updateBookTitle" :value="new_book.title")
+          .form-group
+            label.sr-only(for="book_author") 저자:
+            input.form-control#book_author(placeholder="저자" @input="updateBookAuthor" :value="new_book.author")
+          .form-group
+            label.sr-only(for="book_link") 링크:
+            input.form-control#book_link(placeholder="링크" @input="updateBookLink" :value="new_book.link")
+          button(type="button").btn.btn-default 등록
     .panel.panel-default
       .panel-heading
         h3 Firebase 데이터 Books
       .panel-body
-        ul.books-list
-          li(v-for="book in books")
-            a.book-title(:href="book.link") {{book.title}} // <strong class="book-author"> {{ book.author }} </strong>
-
+        table.table.table-condensed
+          caption Books
+          thead
+            tr
+              th(scope="col") 제목
+              th(scope="col") 저자
+          tbody
+            tr(v-for="book in books")
+              td
+                a.book-title(:href="book.link") {{book.title}}
+              td
+                strong.book-author {{ book.author }}
 
 </template>
 
@@ -84,7 +95,13 @@ body
 
 #app
   text-align: center
+  font-size: 18px
 
-.books-list
-  text-align: left
+  .form,
+  .books-list
+    text-align: left
+
+  .table
+    th, td
+      text-align: left
 </style>
