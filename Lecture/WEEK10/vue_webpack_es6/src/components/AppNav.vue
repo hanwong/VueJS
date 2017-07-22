@@ -18,6 +18,8 @@ export default {
   props: ['links'],
   // 라이프 사이클 훅
   created() {
+    // 부모 컴포넌트에서 전달된 links 데이터 복제하여
+    // AppNav 컴포넌트(자신) mine_links 속성에 할당
     this.mine_links = this.links.slice();
   },
   // 컴포넌트 데이터
@@ -28,10 +30,14 @@ export default {
   },
   methods: {
     removeLink(i){
+
+      // ——————————————————————————————————————
       // links에서 선택한 인덱스의 link를 제거
-        // this.links 에서 index에 해당되는 아이템 하나를 제거
-        // 자식이 직접 부모의 데이터를 수정했다. (경고!!)
-        // this.links.splice(i,1);
+      // ——————————————————————————————————————
+
+      // this.links 에서 index에 해당되는 아이템 하나를 제거
+      // 방법 0. 자식이 직접 부모의 데이터를 수정했다. (경고!!)
+      // this.links.splice(i,1);
 
       // 방법 1. 라이프사이클 훅을 사용
       // this.mine_links.splice(i,1);
