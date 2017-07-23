@@ -1,13 +1,12 @@
 <template lang="pug">
-  #home
-    h2 {{ home_title }}
+  h2 {{ home_title }}
 </template>
 
 <script>
 export default {
   data(){
     return {
-      home_title: 'Home 컴포넌트'
+      home_title: 'Other Home 컴포넌트'
     }
   }
 };
